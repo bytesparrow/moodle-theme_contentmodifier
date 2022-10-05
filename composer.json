@@ -1,0 +1,19 @@
+{
+    "name": "null/contentmodifier",
+    "description": "A theme that enables other themes or plugin to modify moodle's html-output.",
+    "type": "moodle-theme",
+    "keywords": ["theme", "moodle", "html"],
+    "license": "GPLv3",
+    "version": "dev-master",
+    "authors": [
+        {
+            "name": "Bernhard Strehl"
+        }
+    ],
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "composer/installers": "~1.0"
+    }
+    
+}
+
