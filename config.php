@@ -39,6 +39,7 @@ $THEME->supportscssoptimisation = false;
 $THEME->yuicssmodules = [];
 $THEME->enable_dock = false;
 $THEME->editor_sheets = [];
+$THEME->hidefromselector = true;
 
 $THEME->rendererfactory = 'theme_overridden_renderer_factory';
 $THEME->requiredblocks = ''; #wichtig, sonst geht h5p nicht
