@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Theme Contentmodifier - core_renderer class file
+ * Theme Contentmodifier - lib.php
  *
  * @package    theme_contentmodifier
  * @copyright  2022 Bernhard Strehl <moodle@software.bernhard-strehl.de>
@@ -26,3 +26,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 // We will add callbacks here as we add features to our theme.
+
+require(__DIR__.'/lib/outputfactories.php');
+require(__DIR__ . '/lib/core_modifier_base.php');
