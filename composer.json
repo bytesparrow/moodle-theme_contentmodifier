@@ -1,6 +1,6 @@
 {
     "name": "null/contentmodifier",
-    "description": "A theme that enables other themes or plugin to modify moodle's html-output.",
+    "description": "A theme that enables other themes or plugin to modify moodle's html-output and gives modules the possibility to override renderers.",
     "type": "moodle-theme",
     "keywords": ["theme", "moodle", "html"],
     "license": "GPLv3",

@@ -21,6 +21,7 @@
  * @copyright  2022 Bernhard Strehl <moodle@software.bernhard-strehl.de>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
 namespace theme_contentmodifier\output;
 
 
@@ -51,7 +52,7 @@ class core_renderer extends \theme_boost\output\core_renderer
     public function main_content()
     {
 
-        global $COURSE;
+        global $COURSE, $PAGE;
         $courseid = $COURSE->id;
 
         $contextid = \optional_param('id', null, PARAM_INT);
@@ -62,12 +63,10 @@ class core_renderer extends \theme_boost\output\core_renderer
             //schauen gerade keinen content an, content ohne kurs etc.
             return $maincontent;
         }
-
-        //geht nicht über autoload, aber nicht schlimm
-        require(__DIR__ . '/outputmodifiersfactories.php');
-        $modifierfactory = new \overridden_outputmodifiers_factory();
-
-        $pagemodifiers = $modifierfactory->get_modifiers();
+        //initialize rendererfactory
+        $modifierfactory = new \theme_extended_overridden_renderer_factory($PAGE->theme);
+        $pagemodifiers = $modifierfactory->get_modifiers($PAGE);
+        //$pagemodifiers = $PAGE->theme->rendererfactory->get_modifiers(); war die erste Idee, aber rendererfactory ist private
         foreach ($pagemodifiers as $pmod) {
             $pmod->append_content_to_main($maincontent);
             $pmod->modify_main_content($maincontent);
