@@ -59,7 +59,7 @@ class theme_extended_overridden_renderer_factory extends theme_overridden_render
            
            
         }
-        return $foundrenderer
+        return $foundrenderer;
     }
 
     /**
