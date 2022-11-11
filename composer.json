@@ -2,9 +2,13 @@
     "name": "null/contentmodifier",
     "description": "A theme that enables other themes or plugin to modify moodle's html-output and gives modules the possibility to override renderers.",
     "type": "moodle-theme",
-    "keywords": ["theme", "moodle", "html"],
+    "keywords": [
+        "theme",
+        "moodle",
+        "html"
+    ],
     "license": "GPLv3",
-    "version": "dev-master",
+    "version": "v1.0-alpha",
     "authors": [
         {
             "name": "Bernhard Strehl"
@@ -15,6 +19,4 @@
         "composer/installers": "~2.2",
         "moodle/moodle": "v4.*"
     }
-    
 }
-

@@ -22,15 +22,15 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-
+defined('MOODLE_INTERNAL') || die();
 
 require_once(__DIR__ . '/lib.php');
 
 $THEME->name = 'contentmodifier';
 
 
-######  See section "Duplicate the settings from Boost"
-###### @ https://docs.moodle.org/dev/Creating_a_theme_based_on_boost 
+// See section "Duplicate the settings from Boost"
+// @ https://docs.moodle.org/dev/Creating_a_theme_based_on_boost for this.
 
 $THEME->doctype = 'html5';
 $THEME->parents = ['boost'];
@@ -42,7 +42,7 @@ $THEME->editor_sheets = [];
 $THEME->hidefromselector = true;
 
 $THEME->rendererfactory = 'theme_extended_overridden_renderer_factory';
-$THEME->requiredblocks = ''; #wichtig, sonst geht h5p nicht
+$THEME->requiredblocks = ''; // Wichtig, sonst geht h5p nicht.
 $THEME->usefallback = true;
 $THEME->haseditswitch = true;
 // By default, all boost theme do not need their titles displayed.

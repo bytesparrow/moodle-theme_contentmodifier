@@ -18,61 +18,45 @@
  * Theme Contentmodifier - core_modifier_base class file
  * If you want to modify Moodle's main content, implement a class
  * class core_modifier extends \core_modifier_base
- *
+ * in your theme/plugin under classes/output
  * @package    theme_contentmodifier
  * @copyright  2022 Bernhard Strehl <moodle@software.bernhard-strehl.de>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-//namespace "\"
+abstract class core_modifier_base {
 
-
-defined('MOODLE_INTERNAL') || die;
-
-
-/**
- * If you want to implement a content-modifier in your theme/plugin then
- * implement a class extending this class.
- * @package    theme_contentmodifier
- * @copyright  2022 Bernhard Strehl <moodle@software.bernhard-strehl.de>
- * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @category output
- */
-abstract class core_modifier_base
-{
 
     /**
-     * Used to MODIFY the main-content. 
+     * Used to MODIFY the main-content.
      * $main_content is passed as reference, so any changes to this
      * variable have immediate effect.
      * Implement this function in your own plugin if you need it.
      * @param string $main_content the rendered html-main-content
      */
-    public function modify_main_content(&$main_content)
-    {
-        //can be overridden in any module
+    public function modify_main_content(&$maincontent) {
+        // Can be overridden in any module!
     }
 
     /**
-     * Used to append content to main-content. 
+     * Used to append content to main-content.
      * $main_content is passed as reference, so no return is necessary
      * Do NOT override this function, it is used by get_content_to_attach_to_main()
      * @param string $main_content the rendered html-main-content
      */
-    public function append_content_to_main(&$main_content)
-    {
-        $lastdivposition = strrpos($main_content, "</div>");
+    public function append_content_to_main(&$maincontent) {
+        $lastdivposition = strrpos($maincontent, "</div>");
         if (!$lastdivposition) {
             throw new Exception("Main content was crippled and has an unexpected format");
         }
-        $cutmain = substr($main_content, 0, $lastdivposition);
-        $main_content = $cutmain . $this->get_content_to_attach_to_main() . "</div>";
+        $cutmain = substr($maincontent, 0, $lastdivposition);
+        $maincontent = $cutmain . $this->get_content_to_attach_to_main() . "</div>";
     }
 
     /**
-     * implement this function in your plugin. 
+     * implement this function in your plugin.
      * HTML that is returned by this function will be added
      * to moodle's main-content (via function append_content_to_main())
      * @return String $html
      */
-    abstract function get_content_to_attach_to_main();
+    abstract public function get_content_to_attach_to_main();
 }
