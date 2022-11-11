@@ -7,12 +7,14 @@ This theme is provided not as a standalone-theme but as a parenttheme to other t
 
 1. Clone the repository to your theme folder
 2. write your own theme extending THIS theme AND any other (for example boost)
+
     2.1 make sure to place an empty class 
         'class core_renderer extends \theme_contentmodifier\output\core_renderer' in folder classes/output
     2.2. In theme's config.php place the line: 
         $THEME->rendererfactory = 'theme_extended_overridden_renderer_factory';
+
 3. Enable YOUR theme in your Moodle installation under the appearance settings
-4. You can then use the features of this theme by implementing the class
+4. You can now use the features of this theme by implementing the class
     theme_YOURS\output\core_modifier extends \core_modifier_base 
 
 ## Usage
