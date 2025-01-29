@@ -119,7 +119,7 @@ class theme_extended_overridden_renderer_factory extends theme_overridden_render
                 if (!$classnamedef['autoloaded']) {
                     // Hier könnte man nun die datei laden oder so.. aber nur falls sie existiert.
                     // Not implemented!
-                    trigger_error("Handling non-autoloaded classes is not supported in ". __FILE__);
+                    trigger_error("Handling non-autoloaded classes is not supported in ". __FILE__. " for ".$class, E_USER_NOTICE);
                 }
             }
         }
