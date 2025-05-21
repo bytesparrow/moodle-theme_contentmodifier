@@ -118,8 +118,8 @@ class theme_extended_overridden_renderer_factory extends theme_overridden_render
         }
         if (!$classnamedef['autoloaded']) {
           // Hier könnte man nun die datei laden oder so.. aber nur falls sie existiert.
-          // Not implemented!
-          trigger_error("Handling non-autoloaded classes is not supported in " . __FILE__ . " for " . $class, E_USER_NOTICE);
+          //trigger-error entfernt, da dies "100x" kommt. quasi für jedes plugin. media_youtube, format_topics,dataformat_html,profilefield_menu
+          //trigger_error("Handling non-autoloaded classes is not supported in " . __FILE__ . " for " . $class, E_USER_NOTICE);
         }
       }
     }
