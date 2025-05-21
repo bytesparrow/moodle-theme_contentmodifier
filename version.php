@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 defined('MOODLE_INTERNAL') || die;
-$plugin->version = 2025012900;
+$plugin->version = 2025012901;
 $plugin->requires = 2022112800;
 $plugin->supported = [400, 403];
 $plugin->component = 'theme_contentmodifier';
